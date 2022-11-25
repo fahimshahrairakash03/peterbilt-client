@@ -1,9 +1,10 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateProfile } = useContext(AuthContext);
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,10 +32,26 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        const userInfo = {
+          displayName: name,
+        };
+        updateProfile(userInfo)
+          .then(() => {})
+          .catch((e) => console.log(e));
       })
       .catch((e) => console.log(e));
 
     console.log(userData);
+  };
+
+  const handleGoogleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider();
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -94,7 +111,7 @@ const SignUp = () => {
           </div>
 
           <input
-            className="btn btn-accent w-full m-3"
+            className="btn btn-accent w-full my-3"
             value="Signup"
             type="submit"
           />
@@ -105,6 +122,10 @@ const SignUp = () => {
             </Link>
           </p>
         </form>
+        <div className="divider">OR</div>
+        <button onClick={handleGoogleSignIn} className="btn btn-success w-full">
+          CONTINUE WITH GOOGLE
+        </button>
       </div>
     </div>
   );
