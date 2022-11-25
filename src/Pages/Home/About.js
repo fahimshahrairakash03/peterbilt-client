@@ -7,11 +7,12 @@ const About = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
+            alt=""
             src={truck5}
             className="lg:w-1/2 sm:w-3/4 rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">About Us!</h1>
+            <h1 className="text-5xl font-bold text-center">About Us!</h1>
             <p className="py-6">
               For 80 years, Peterbilt has supplied the used commercial vehicle
               market with the industry’s most rugged, reliable and efficient
