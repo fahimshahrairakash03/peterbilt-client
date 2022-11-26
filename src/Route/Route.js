@@ -3,6 +3,8 @@ import DashboardLayOut from "../layout/DashboardLayOut";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Products from "../Pages/Category/Products";
+import AllBuyers from "../Pages/Dashboard/AllBuyers";
+import AllSellers from "../Pages/Dashboard/AllSellers";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Myorders from "../Pages/Dashboard/Myorders";
@@ -54,7 +56,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard/myorders",
+        path: "/dashboard",
         element: <Myorders></Myorders>,
       },
       {
@@ -62,6 +64,22 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allsellers",
+        element: (
+          <AdminRoute>
+            <AllSellers></AllSellers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allbuyers",
+        element: (
+          <AdminRoute>
+            <AllBuyers></AllBuyers>
           </AdminRoute>
         ),
       },

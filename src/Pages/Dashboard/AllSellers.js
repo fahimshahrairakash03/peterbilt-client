@@ -2,25 +2,24 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import toast from "react-hot-toast";
 
-const AllUsers = () => {
+const AllSellers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("http://localhost:5000/users/sellers");
       const data = await res.json();
       return data;
     },
   });
 
-  //Making Admin
-  const handleAdmin = (id) => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
-      method: "PUT",
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/users/selected/${id}`, {
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) {
-          toast.success("admin created successfully");
+        if (data.deletedCount > 0) {
+          toast.success("Deleted Successfully");
           refetch();
         }
       });
@@ -28,7 +27,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h2 className="text-3xl text-center font-bold">All Users</h2>
+      <h2 className="text-3xl text-center font-bold">All Sellers</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -36,7 +35,7 @@ const AllUsers = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th></th>
+              <th>Favorite Color</th>
               <th>User Role</th>
             </tr>
           </thead>
@@ -47,14 +46,12 @@ const AllUsers = () => {
                 <td>{user.userName}</td>
                 <td>{user.userEmail}</td>
                 <td>
-                  {user?.role !== "admin" && (
-                    <button
-                      onClick={() => handleAdmin(user._id)}
-                      className="btn text-white btn-xs btn-outline btn-secondary"
-                    >
-                      Make Admin
-                    </button>
-                  )}
+                  <button
+                    onClick={() => handleDelete(user._id)}
+                    className="btn text-white btn-xs  btn-error"
+                  >
+                    DELETE
+                  </button>
                 </td>
                 <td>{user.userRole}</td>
               </tr>
@@ -66,4 +63,4 @@ const AllUsers = () => {
   );
 };
 
-export default AllUsers;
+export default AllSellers;
