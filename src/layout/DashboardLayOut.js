@@ -22,7 +22,7 @@ const DashboardLayOut = () => {
               <Link to="/dashboard/myorders">My Orders</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link to="/dashboard/allusers">All Users</Link>
             </li>
           </ul>
         </div>

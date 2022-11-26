@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -37,6 +38,7 @@ const SignUp = () => {
         updateUser(userInfo)
           .then(() => {
             saveUser(userData);
+            form.reset();
           })
           .catch((e) => console.log(e));
       })
@@ -61,7 +63,19 @@ const SignUp = () => {
 
   //
   const saveUser = (user) => {
-    console.log(user);
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("User Created Successfully");
+        }
+      });
   };
 
   return (
