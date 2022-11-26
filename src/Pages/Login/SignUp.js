@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
-  const { createUser, googleSignIn, updateProfile } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,14 +17,13 @@ const SignUp = () => {
       userData = {
         userName: name,
         userEmail: email,
-        userPassword: password,
         userRole: "seller",
       };
     } else {
       userData = {
         userName: name,
         userEmail: email,
-        userPassword: password,
+        userRole: "buyer",
       };
     }
 
@@ -35,23 +34,34 @@ const SignUp = () => {
         const userInfo = {
           displayName: name,
         };
-        updateProfile(userInfo)
-          .then(() => {})
+        updateUser(userInfo)
+          .then(() => {
+            saveUser(userData);
+          })
           .catch((e) => console.log(e));
       })
       .catch((e) => console.log(e));
-
-    console.log(userData);
   };
 
+  //Google Sign up
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        const userData = {
+          userName: user.displayName,
+          userEmail: user.email,
+          userRole: "buyer",
+        };
+        saveUser(userData);
       })
       .catch((e) => console.log(e));
+  };
+
+  //
+  const saveUser = (user) => {
+    console.log(user);
   };
 
   return (
