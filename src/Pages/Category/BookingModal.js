@@ -1,0 +1,86 @@
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+
+const BookingModal = ({ product }) => {
+  const { user } = useContext(AuthContext);
+  const { name: productName, resalePrice } = product;
+
+  const handleBooking = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const price = form.price.value;
+    const phone = form.phone.value;
+    const location = form.location.value;
+    // console.log(name, email, price, phone, location);
+    const booking = {
+      productName: productName,
+      buyer: name,
+      email: email,
+      price,
+      phone,
+      location,
+    };
+    console.log(booking);
+  };
+
+  return (
+    <div>
+      <input type="checkbox" id="my-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box">
+          <label
+            htmlFor="my-modal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="font-bold text-lg">{productName}</h3>
+          <form onSubmit={handleBooking} className="grid grid-cols-1 gap-3">
+            <p>Name</p>
+            <input
+              name="name"
+              type="text"
+              defaultValue={user?.name}
+              placeholder="Your Name"
+              className="input w-full input-bordered "
+            />
+            <p>Email</p>
+            <input
+              name="email"
+              type="email"
+              defaultValue={user?.email}
+              readOnly
+              placeholder="Email Address"
+              className="input w-full input-bordered "
+            />
+            <p>Price</p>
+            <input
+              name="price"
+              type="text"
+              defaultValue={resalePrice}
+              className="input w-full input-bordered "
+            />
+            <p>Phone Number</p>
+            <input
+              name="phone"
+              type="text"
+              className="input w-full input-bordered "
+            />
+            <p>Meeting Location</p>
+            <input
+              name="location"
+              type="text"
+              className="input w-full input-bordered "
+            />
+            <br />
+            <input type="submit" value="Submit" className="btn btn-accent" />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookingModal;

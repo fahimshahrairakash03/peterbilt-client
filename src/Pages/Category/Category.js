@@ -19,7 +19,7 @@ const Category = () => {
       </h2>
       <div className="grid sm:grid-cols-1 lg:grid-cols-3">
         {categories.map((category) => (
-          <CategoryCard category={category}></CategoryCard>
+          <CategoryCard key={category._id} category={category}></CategoryCard>
         ))}
       </div>
     </div>

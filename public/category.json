@@ -1,14 +1,101 @@
 [
   {
-    "name": "Heavy Trucks",
-    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png"
+    "id": "638194a0b8fd403ed5c4262f",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
   },
   {
-    "name": "Medium Truck",
-    "img": "https://www.peterbilt.com/sites/default/files/2022-03/model_536.png"
+    "id": "638194a0b8fd403ed5c4262f",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
   },
   {
-    "name": "Pickup",
-    "img": "https://www.peterbilt.com/sites/default/files/2022-06/220ev_.jpg"
+    "id": "638194a0b8fd403ed5c4262f",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42630",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42630",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42630",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42631",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42631",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
+  },
+  {
+    "id": "638194a0b8fd403ed5c42631",
+    "name": "Peterbilt 120",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png",
+    "location": "dhaka",
+    "resalePrice": "4800000",
+    "originalPrice": "7000000",
+    "used": "4 years",
+    "time": "26th nov",
+    "seller": "fahim"
   }
 ]
