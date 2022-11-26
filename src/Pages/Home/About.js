@@ -12,8 +12,10 @@ const About = () => {
             className="lg:w-1/2 sm:w-3/4 rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold text-center">About Us!</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold text-center text-red-900">
+              About Us!
+            </h1>
+            <p className="py-6  font-medium ">
               For 80 years, Peterbilt has supplied the used commercial vehicle
               market with the industry’s most rugged, reliable and efficient
               products. Based in use, Peterbilt brings on highway, vocational

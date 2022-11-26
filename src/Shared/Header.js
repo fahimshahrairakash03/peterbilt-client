@@ -7,18 +7,27 @@ const Header = () => {
   const menuItem = (
     <React.Fragment>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="font-semibold text-red-900 " to="/">
+          Home
+        </Link>
       </li>
+
       <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/blog">Blog</Link>
+        <Link className="font-semibold text-red-900 " to="/blog">
+          Blog
+        </Link>
       </li>
       {user?.uid ? (
         <>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link className="font-semibold text-red-900 " to="/dashboard">
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link className="font-bold text-red-900  " to="/dashboard">
+              {user.displayName}
+            </Link>
           </li>
 
           <li>
@@ -31,7 +40,9 @@ const Header = () => {
         </>
       ) : (
         <li>
-          <Link to="/login">Login</Link>
+          <Link className="font-semibold text-red-900 " to="/login">
+            Login
+          </Link>
         </li>
       )}
     </React.Fragment>

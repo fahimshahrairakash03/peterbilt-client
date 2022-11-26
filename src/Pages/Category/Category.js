@@ -13,11 +13,11 @@ const Category = () => {
   }, []);
 
   return (
-    <div className="mt-5">
-      <h2 className="text-3xl text-center font-bold">
-        {categories.length} Categories of Truck
+    <div className="my-5 ">
+      <h2 className="text-4xl text-center font-bold text-red-900">
+        Categories
       </h2>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-3">
+      <div className="m7-5 p-5  grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
         {categories.map((category) => (
           <CategoryCard key={category._id} category={category}></CategoryCard>
         ))}

@@ -18,7 +18,9 @@ const Myorders = () => {
 
   return (
     <div>
-      <h1 className="text-center text-3xl font-bold">My orders</h1>
+      <h1 className="text-center my-3 text-red-900 text-3xl font-bold">
+        My orders
+      </h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

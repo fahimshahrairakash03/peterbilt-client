@@ -8,11 +8,13 @@ import AllSellers from "../Pages/Dashboard/AllSellers";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Myorders from "../Pages/Dashboard/Myorders";
+import MyProducts from "../Pages/Dashboard/MyProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +35,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <Products></Products>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Products></Products>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
       },
@@ -58,6 +65,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Myorders></Myorders>,
+      },
+      {
+        path: "/dashboard/myproducts",
+        element: (
+          <SellerRoute>
+            <MyProducts></MyProducts>
+          </SellerRoute>
+        ),
       },
       {
         path: "/dashboard/allusers",

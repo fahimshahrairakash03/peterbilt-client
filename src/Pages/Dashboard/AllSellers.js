@@ -27,25 +27,27 @@ const AllSellers = () => {
 
   return (
     <div>
-      <h2 className="text-3xl text-center font-bold">All Sellers</h2>
+      <h2 className="text-3xl text-red-900 my-3 text-center font-bold">
+        All Sellers
+      </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Favorite Color</th>
-              <th>User Role</th>
+              <th className="text-red-900">Name</th>
+              <th className="text-red-900">Email</th>
+              <th></th>
+              <th className="text-red-900">User Role</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, i) => (
               <tr key={user._id}>
                 <th>{i + 1}</th>
-                <td>{user.userName}</td>
-                <td>{user.userEmail}</td>
-                <td>
+                <td className="text-red-900">{user.userName}</td>
+                <td className="text-red-900">{user.userEmail}</td>
+                <td className="text-red-900">
                   <button
                     onClick={() => handleDelete(user._id)}
                     className="btn text-white btn-xs  btn-error"
@@ -53,7 +55,7 @@ const AllSellers = () => {
                     DELETE
                   </button>
                 </td>
-                <td>{user.userRole}</td>
+                <td className="text-red-900">{user.userRole}</td>
               </tr>
             ))}
           </tbody>

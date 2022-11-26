@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 bg-black text-neutral-content">
         <div>
           <span className="footer-title">Services</span>
           <Link className="link link-hover">Branding</Link>
