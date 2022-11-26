@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "category_id": 1,
+    "name": "Teeth Cleaning",
+    "details": "dasdasdasdasdasdasdasd"
+  },
+  {
+    "id": 2,
+    "name": "Teeth Cleaning",
+    "details": "dasdasdasdasdasdasdasd"
+  },
+  {
+    "id": 3,
+    "category_id": 2,
+    "name": "Teeth Cleaning",
+    "details": "dasdasdasdasdasdasdasd"
+  }
+]

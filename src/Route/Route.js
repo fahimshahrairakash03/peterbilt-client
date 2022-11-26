@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
+import Products from "../Pages/Category/Products";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
@@ -24,6 +25,11 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
+        path: "/products/:id",
+        element: <Products></Products>,
+        loader: ({ params }) => fetch(`products.json/${params.id}`),
+      },
+      {
         path: "/blog",
         element: (
           <PrivateRoute>
@@ -33,6 +39,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {},
 ]);
 
 export default router;
