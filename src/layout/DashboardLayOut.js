@@ -30,14 +30,24 @@ const DashboardLayOut = () => {
               </Link>
             </li>
             {isSeller && (
-              <li>
-                <Link
-                  className="text-red-900 font-bold"
-                  to="/dashboard/myproducts"
-                >
-                  My Products
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link
+                    className="text-red-900 font-bold"
+                    to="/dashboard/myproducts"
+                  >
+                    My Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="text-red-900 font-bold"
+                    to="/dashboard/addproduct"
+                  >
+                    Add Product
+                  </Link>
+                </li>
+              </>
             )}
             {isAdmin && (
               <>

@@ -9,7 +9,7 @@ const Products = () => {
 
   return (
     <div className="my-5">
-      <h1 className="text-center text-4xl font-bold">
+      <h1 className="text-center text-4xl font-bold my-5 text-red-900">
         Products {products.length}{" "}
       </h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

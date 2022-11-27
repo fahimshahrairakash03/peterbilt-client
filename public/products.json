@@ -1,19 +1,17 @@
 [
   {
-    "id": 1,
-    "category_id": 1,
-    "name": "Teeth Cleaning",
-    "details": "dasdasdasdasdasdasdasd"
+    "categoryId": "1",
+    "name": "Heavy Trucks",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-09/hero_image_389x_updated.png"
   },
   {
-    "id": 2,
-    "name": "Teeth Cleaning",
-    "details": "dasdasdasdasdasdasdasd"
+    "categoryId": "2",
+    "name": "Medium Truck",
+    "img": "https://www.peterbilt.com/sites/default/files/2022-03/model_536.png"
   },
   {
-    "id": 3,
-    "category_id": 2,
-    "name": "Teeth Cleaning",
-    "details": "dasdasdasdasdasdasdasd"
+    "categoryId": "3",
+    "name": "Pickup",
+    "img": "https://www.peterbilt.com/sites/default/files/styles/truck_menu_thumbnail/public/2021-10/220ev_truck.png?itok=uTNpr1_o"
   }
 ]
