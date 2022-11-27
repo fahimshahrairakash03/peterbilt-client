@@ -60,6 +60,9 @@ const DashboardLayOut = () => {
                 <li className="text-red-900 font-bold">
                   <Link to="/dashboard/allbuyers">All Buyers</Link>
                 </li>
+                <li className="text-red-900 font-bold">
+                  <Link to="/dashboard/reported">Reported Items</Link>
+                </li>
               </>
             )}
           </ul>

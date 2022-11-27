@@ -10,6 +10,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Myorders from "../Pages/Dashboard/Myorders";
 import MyProducts from "../Pages/Dashboard/MyProducts";
+import ReportedItems from "../Pages/Dashboard/ReportedItems";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
@@ -105,6 +106,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllBuyers></AllBuyers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/reported",
+        element: (
+          <AdminRoute>
+            <ReportedItems></ReportedItems>
           </AdminRoute>
         ),
       },
