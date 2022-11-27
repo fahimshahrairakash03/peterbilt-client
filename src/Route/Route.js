@@ -14,6 +14,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import AdminRoute from "./AdminRoute";
+import Notfound from "./Notfound";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
@@ -109,6 +110,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  { path: "*", element: <Notfound></Notfound> },
 ]);
 
 export default router;
