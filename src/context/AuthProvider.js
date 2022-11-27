@@ -17,6 +17,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
+  const [advertise, setAdvertise] = useState([]);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -41,6 +42,12 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    fetch("http://localhost:5000/advertise")
+      .then((res) => res.json())
+      .then((data) => setAdvertise(data));
+  }, []);
+
+  useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("on state User", currentUser);
       setUser(currentUser);
@@ -58,6 +65,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     logOut,
     updateUser,
+    advertise,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
