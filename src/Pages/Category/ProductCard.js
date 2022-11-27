@@ -4,6 +4,7 @@ const ProductCard = ({ product, setProduct }) => {
   const {
     productName,
     price,
+    buyingPrice,
     image,
     description,
     category,
@@ -11,6 +12,7 @@ const ProductCard = ({ product, setProduct }) => {
     purchaseYear,
     location,
     seller,
+    email,
     phone,
   } = product;
   return (

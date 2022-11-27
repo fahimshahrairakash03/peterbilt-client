@@ -10,6 +10,7 @@ const AddProduct = () => {
     const form = e.target;
     const productName = form.name.value;
     const price = form.price.value;
+    const buyingPrice = form.buyingPrice.value;
     const image = form.image.value;
     const description = form.description.value;
     const category = form.category.value;
@@ -17,12 +18,14 @@ const AddProduct = () => {
     const condition = form.condition.value;
     const purchaseYear = form.year.value;
     const seller = form.seller.value;
+    const email = form.email.value;
     const phone = form.phone.value;
     const location = form.location.value;
 
     const product = {
       productName,
       price,
+      buyingPrice,
       image,
       description,
       category,
@@ -30,6 +33,7 @@ const AddProduct = () => {
       condition,
       purchaseYear,
       seller,
+      email,
       phone,
       location,
     };
@@ -72,11 +76,23 @@ const AddProduct = () => {
           <div>
             <label className="label">
               <span className="label-text font-semibold text-red-900">
-                Product Price
+                Product Selling Price
               </span>
             </label>
             <input
               name="price"
+              type="text"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div>
+            <label className="label">
+              <span className="label-text font-semibold text-red-900">
+                Product Buying Price
+              </span>
+            </label>
+            <input
+              name="buyingPrice"
               type="text"
               className="input input-bordered w-full max-w-xs"
             />
@@ -170,6 +186,19 @@ const AddProduct = () => {
               defaultValue={user?.displayName}
               name="seller"
               type="text"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div>
+            <label className="label">
+              <span className="label-text font-semibold text-red-900">
+                Seller Email
+              </span>
+            </label>
+            <input
+              defaultValue={user?.email}
+              name="email"
+              type="email"
               className="input input-bordered w-full max-w-xs"
             />
           </div>
