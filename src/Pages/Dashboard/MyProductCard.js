@@ -1,8 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
 
-const MyProductCard = ({ product }) => {
+const MyProductCard = ({ product, refetch }) => {
   const {
+    _id,
     productName,
     price,
     buyingPrice,
@@ -33,6 +34,19 @@ const MyProductCard = ({ product }) => {
       });
   };
 
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/product/selected/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast.success("Deleted Successfully");
+          refetch();
+        }
+      });
+  };
+
   return (
     <div>
       <div>
@@ -59,7 +73,11 @@ const MyProductCard = ({ product }) => {
               >
                 Advertise
               </label>
-              <label className="btn btn-error text-white" htmlFor="my-modal">
+              <label
+                onClick={() => handleDelete(_id)}
+                className="btn btn-error text-white"
+                htmlFor="my-modal"
+              >
                 Delete
               </label>
             </div>

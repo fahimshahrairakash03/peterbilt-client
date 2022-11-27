@@ -7,7 +7,7 @@ const MyProducts = () => {
   const { user } = useContext(AuthContext);
 
   const url = `http://localhost:5000/products?email=${user?.email}`;
-  const { data: products = [] } = useQuery({
+  const { data: products = [], refetch } = useQuery({
     queryKey: ["products", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
@@ -23,7 +23,11 @@ const MyProducts = () => {
       </h2>
       <div className="grid gap-5 sm:grid-cols-1  lg:grid-cols-2">
         {products?.map((product, i) => (
-          <MyProductCard key={product._id} product={product}></MyProductCard>
+          <MyProductCard
+            refetch={refetch}
+            key={product._id}
+            product={product}
+          ></MyProductCard>
         ))}
       </div>
     </div>

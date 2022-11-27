@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const BookingModal = ({ product }) => {
   const { user } = useContext(AuthContext);
-  const { name: productName, resalePrice } = product;
+  const { productName, price } = product;
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const BookingModal = ({ product }) => {
     const location = form.location.value;
     // console.log(name, email, price, phone, location);
     const booking = {
-      productName: productName,
+      productName,
       buyer: name,
       email: email,
       price,
@@ -58,7 +58,7 @@ const BookingModal = ({ product }) => {
             <input
               name="name"
               type="text"
-              defaultValue={user?.name}
+              defaultValue={user?.displayName}
               placeholder="Your Name"
               className="input w-full input-bordered "
             />
@@ -75,7 +75,7 @@ const BookingModal = ({ product }) => {
             <input
               name="price"
               type="text"
-              defaultValue={resalePrice}
+              defaultValue={price}
               className="input w-full input-bordered "
             />
             <p>Phone Number</p>

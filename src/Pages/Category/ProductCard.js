@@ -1,7 +1,9 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product, setProduct }) => {
   const {
+    _id,
     productName,
     price,
     buyingPrice,
@@ -14,7 +16,25 @@ const ProductCard = ({ product, setProduct }) => {
     seller,
     email,
     phone,
+    date,
   } = product;
+
+  const handleReport = (product) => {
+    fetch("http://localhost:5000/product/reported", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.error("Reported the products");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -23,7 +43,8 @@ const ProductCard = ({ product, setProduct }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title text-red-900 font-bold">{productName}</h2>
-          <p>Price: {price}</p>
+          <p>Resale Price: {price}</p>
+          <p>Original Price: {buyingPrice}</p>
           <p>Details: {description}</p>
           <p>Category: {category}</p>
           <p>Condition: {condition}</p>
@@ -32,15 +53,24 @@ const ProductCard = ({ product, setProduct }) => {
           <p>Phone: {phone}</p>
           <p>Location: {location}</p>
 
-          <div className="card-actions justify-end">
-            <label
-              onClick={() => setProduct(product)}
-              className="btn btn-primary"
-              htmlFor="my-modal"
-            >
-              Book Now
-            </label>
+          <div className="flex items-center">
+            <div className="card-actions ">
+              <label
+                onClick={() => setProduct(product)}
+                className="btn btn-primary"
+                htmlFor="my-modal"
+              >
+                Book Now
+              </label>
+            </div>
+            <p className="text-sm ml-10">Posted On: {date}</p>
           </div>
+          <button
+            onClick={() => handleReport(product)}
+            className="btn w-1/4 btn-sm btn-error"
+          >
+            Report
+          </button>
         </div>
       </div>
     </div>

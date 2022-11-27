@@ -1,9 +1,17 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
+  var yyyy = today.getFullYear();
+  today = mm + "/" + dd + "/" + yyyy;
 
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -21,6 +29,7 @@ const AddProduct = () => {
     const email = form.email.value;
     const phone = form.phone.value;
     const location = form.location.value;
+    const date = today;
 
     const product = {
       productName,
@@ -36,6 +45,7 @@ const AddProduct = () => {
       email,
       phone,
       location,
+      date,
     };
 
     fetch("http://localhost:5000/product", {
@@ -50,6 +60,7 @@ const AddProduct = () => {
         if (data.acknowledged) {
           toast.success("Product Added");
           form.reset();
+          navigate("/dashboard/myproducts");
         }
       });
   };
