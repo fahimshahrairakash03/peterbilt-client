@@ -46,6 +46,7 @@ const AddProduct = () => {
       phone,
       location,
       date,
+      availability: "available",
     };
 
     fetch("http://localhost:5000/product", {

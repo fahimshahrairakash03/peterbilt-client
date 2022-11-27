@@ -17,6 +17,7 @@ const ProductCard = ({ product, setProduct }) => {
     email,
     phone,
     date,
+    availability,
   } = product;
 
   const handleReport = (product) => {
@@ -54,15 +55,40 @@ const ProductCard = ({ product, setProduct }) => {
           <p>Location: {location}</p>
 
           <div className="flex items-center">
-            <div className="card-actions ">
-              <label
-                onClick={() => setProduct(product)}
-                className="btn btn-primary"
-                htmlFor="my-modal"
-              >
-                Book Now
-              </label>
-            </div>
+            {/* {availability === "sold" ? (
+              <div className="card-actions ">
+                <label
+                  
+                  onClick={() => setProduct(product)}
+                  className="btn btn-accent"
+                  htmlFor="my-modal"
+                >
+                
+                </label>
+              </div>
+            ) : (
+              <div className="card-actions ">
+                <label
+                  onClick={() => setProduct(product)}
+                  className="btn btn-primary"
+                  htmlFor="my-modal"
+                >
+                  Book Now
+                </label>
+              </div>
+            )} */}
+            {
+              <div className="card-actions ">
+                <label
+                  disabled={availability === "sold"}
+                  onClick={() => setProduct(product)}
+                  className="btn btn-primary"
+                  htmlFor="my-modal"
+                >
+                  Book Now
+                </label>
+              </div>
+            }
             <p className="text-sm ml-10">Posted On: {date}</p>
           </div>
           <button

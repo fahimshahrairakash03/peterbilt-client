@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import AdvertiseCard from "./AdvertiseCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 

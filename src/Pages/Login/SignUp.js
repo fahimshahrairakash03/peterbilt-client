@@ -1,11 +1,13 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -74,6 +76,7 @@ const SignUp = () => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("User Created Successfully");
+          navigate("/");
         }
       });
   };

@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const BookingModal = ({ product }) => {
   const { user } = useContext(AuthContext);
-  const { productName, price } = product;
+  const { productName, price, _id } = product;
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -35,10 +35,19 @@ const BookingModal = ({ product }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          productStatus(_id);
           toast.success("Booking confirmed");
         }
         console.log(data);
       });
+  };
+
+  const productStatus = (id) => {
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (

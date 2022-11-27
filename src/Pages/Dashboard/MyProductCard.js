@@ -16,6 +16,7 @@ const MyProductCard = ({ product, refetch }) => {
     seller,
     email,
     phone,
+    availability,
   } = product;
 
   const handleAdvertise = (product) => {
@@ -64,9 +65,11 @@ const MyProductCard = ({ product, refetch }) => {
             <p>Seller: {seller}</p>
             <p>Phone: {phone}</p>
             <p>Location: {location}</p>
+            <p>Availability: {availability}</p>
 
             <div className="card-actions flex ">
               <label
+                disabled={availability === "sold"}
                 onClick={() => handleAdvertise(product)}
                 className="btn btn-primary"
                 htmlFor="my-modal"
