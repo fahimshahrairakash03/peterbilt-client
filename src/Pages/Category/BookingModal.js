@@ -25,7 +25,7 @@ const BookingModal = ({ product }) => {
     };
     console.log(booking);
 
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://perterbilt-server.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,7 @@ const BookingModal = ({ product }) => {
   };
 
   const productStatus = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://perterbilt-server.vercel.app/products/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

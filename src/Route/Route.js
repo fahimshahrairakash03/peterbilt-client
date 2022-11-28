@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://perterbilt-server.vercel.app/category/${params.id}`),
       },
       {
         path: "/blog",

@@ -65,7 +65,7 @@ const SignUp = () => {
 
   //
   const saveUser = (user) => {
-    fetch("http://localhost:5000/users", {
+    fetch("https://perterbilt-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

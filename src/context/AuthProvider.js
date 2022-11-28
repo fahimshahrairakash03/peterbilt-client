@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/advertise")
+    fetch("https://perterbilt-server.vercel.app/advertise")
       .then((res) => res.json())
       .then((data) => setAdvertise(data));
   }, []);

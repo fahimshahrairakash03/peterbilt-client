@@ -49,7 +49,7 @@ const AddProduct = () => {
       availability: "available",
     };
 
-    fetch("http://localhost:5000/product", {
+    fetch("https://perterbilt-server.vercel.app/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

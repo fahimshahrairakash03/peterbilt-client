@@ -21,7 +21,7 @@ const ProductCard = ({ product, setProduct }) => {
   } = product;
 
   const handleReport = (product) => {
-    fetch("http://localhost:5000/product/reported", {
+    fetch("https://perterbilt-server.vercel.app/product/reported", {
       method: "POST",
       headers: {
         "content-type": "application/json",

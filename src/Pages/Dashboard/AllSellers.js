@@ -6,14 +6,16 @@ const AllSellers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users/sellers");
+      const res = await fetch(
+        "https://perterbilt-server.vercel.app/users/sellers"
+      );
       const data = await res.json();
       return data;
     },
   });
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/selected/${id}`, {
+    fetch(`https://perterbilt-server.vercel.app/users/selected/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

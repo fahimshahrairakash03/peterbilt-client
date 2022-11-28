@@ -20,7 +20,7 @@ const MyProductCard = ({ product, refetch }) => {
   } = product;
 
   const handleAdvertise = (product) => {
-    fetch("http://localhost:5000/advertise", {
+    fetch("https://perterbilt-server.vercel.app/advertise", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,7 +36,7 @@ const MyProductCard = ({ product, refetch }) => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/product/selected/${id}`, {
+    fetch(`https://perterbilt-server.vercel.app/product/selected/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const ReportedItems = () => {
-  const url = "http://localhost:5000/product/reported";
+  const url = "https://perterbilt-server.vercel.app/product/reported";
   const { data: reports = [] } = useQuery({
     queryKey: ["reported"],
     queryFn: async () => {
