@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const SignUp = () => {
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -41,10 +42,16 @@ const SignUp = () => {
           .then(() => {
             saveUser(userData);
             form.reset();
+            setError("");
           })
-          .catch((e) => console.log(e));
+          .catch((e) => {
+            console.log(e);
+          });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setError(error.message);
+      });
   };
 
   //Google Sign up
