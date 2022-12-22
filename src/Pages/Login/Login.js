@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,6 +9,8 @@ const Login = () => {
   const { userLogin, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [error, setError] = useState("");
+
   const from = location.state?.from?.pathname || "/";
   const {
     register,
@@ -22,10 +24,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
         toast.success("login successfull");
         navigate(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setError(e.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -86,6 +92,7 @@ const Login = () => {
           />
           <div></div>
         </form>
+        <p className="text-danger  ">{error}</p>
         <p>
           New to Dotros portal{" "}
           <Link className="text-blue-600" to="/signup">
